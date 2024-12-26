@@ -1,18 +1,16 @@
 const express = require('express');
 const port = 8000;
 const app = express();
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+const router = express.Router();
+const routes = require('./routes/routes')
+//
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+routes(router);
+//
 
 //
-app.post('/addemployee', (req, res) => {
-    let empName = req.body.empName;
-    let empPass = req.body.empPass;
-
-    res.send(`POST success, you sent ${empName} and ${empPass}, thanks!`);
-});
-//
+app.use('/', router);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

@@ -1,0 +1,13 @@
+
+POST http://localhost:8000/addemployee HTTP/1.1
+content-type: application/json
+
+{
+    "empName":"ravi",
+    "empPass":"1234"
+}
+
+###
+
+GET http://localhost:8000/aboutus HTTP/1.1 
+
